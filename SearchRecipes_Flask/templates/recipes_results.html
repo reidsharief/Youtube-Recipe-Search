@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes</title>
+</head>
+<body style="background-color:#6dbde8;">
+
+ <table border="5">
+        <tr>
+            <th>Name</th>
+            <th>Rating</th>
+            <th>Views</th>
+            <th>Thumbnail</th>
+            <th>Video</th>
+        </tr>
+        {% for i in recipes %}
+        <tr>
+            <td>
+                {{ i["title"] }}
+            </td>
+            <td>
+                {{ i["rating"] }}
+            </td>
+            <td>
+                {{ i["views"] }}
+            </td>
+            <td>
+                <img src='{{ i["thumbnail"] }}'>
+            </td>
+            <td>
+                <iframe width="560" height="315" src='https://www.youtube.com/embed/{{ i["youTubeId"] }}' frameborder="0" allow="picture-in-picture" allowfullscreen></iframe>
+            </td>
+        </tr>
+        {% endfor %}
+</table>
+
+    <br><br>
+
+<a href="{{url_for('search')}}">New Search</a>
+</body>
+</html>
